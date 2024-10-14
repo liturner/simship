@@ -1,0 +1,64 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "common",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "build/${presetName}",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      }
+    },
+    {
+      "name": "debug",
+      "displayName": "Debug Configure",
+      "inherits": "common",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release",
+      "displayName": "Release Configure",
+      "inherits": "common",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "relWithDebInfo",
+      "displayName": "RelWithDebInfo Configure",
+      "inherits": "common",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "displayName": "Debug Build",
+      "configurePreset": "debug",
+      "configuration": "Debug"
+    },
+    {
+      "name": "release",
+      "displayName": "Release Build",
+      "configurePreset": "release",
+      "configuration": "Release"
+    },
+    {
+      "name": "relWithDebInfo",
+      "displayName": "RelWithDebInfo Build",
+      "configurePreset": "relWithDebInfo",
+      "configuration": "RelWithDebInfo"
+    }
+  ]
+}
